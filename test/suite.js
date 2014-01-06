@@ -132,13 +132,25 @@ describe('Suite', function(){
 
     describe('wraps the passed in function in a Hook', function(){
       it('adds it to _beforeAll', function(){
-        function fn(){}
-        this.suite.beforeAll(fn);
+        var anonFn = function(){};
+        this.suite.beforeAll(anonFn);
 
         this.suite._beforeAll.should.have.length(1);
         var beforeAllItem = this.suite._beforeAll[0];
         beforeAllItem.title.should.equal('"before all" hook');
-        beforeAllItem.fn.should.equal(fn);
+        beforeAllItem.fn.should.equal(anonFn);
+      });
+    });
+
+    describe('derives title from function name', function(){
+      it('adds it to _beforeAll', function(){
+        function suchAndSuch(){}
+        this.suite.beforeAll(suchAndSuch);
+
+        this.suite._beforeAll.should.have.length(1);
+        var beforeAllItem = this.suite._beforeAll[0];
+        beforeAllItem.title.should.equal('suchAndSuch "before all" hook');
+        beforeAllItem.fn.should.equal(suchAndSuch);
       });
     });
   });
@@ -150,13 +162,25 @@ describe('Suite', function(){
 
     describe('wraps the passed in function in a Hook', function(){
       it('adds it to _afterAll', function(){
-        function fn(){}
-        this.suite.afterAll(fn);
+        var anonFn = function(){};
+        this.suite.afterAll(anonFn);
 
         this.suite._afterAll.should.have.length(1);
         var afterAllItem = this.suite._afterAll[0];
         afterAllItem.title.should.equal('"after all" hook');
-        afterAllItem.fn.should.equal(fn);
+        afterAllItem.fn.should.equal(anonFn);
+      });
+    });
+
+    describe('derives title from function name', function(){
+      it('adds it to _afterAll', function(){
+        function suchAndSuch(){}
+        this.suite.afterAll(suchAndSuch);
+
+        this.suite._afterAll.should.have.length(1);
+        var afterAllItem = this.suite._afterAll[0];
+        afterAllItem.title.should.equal('suchAndSuch "after all" hook');
+        afterAllItem.fn.should.equal(suchAndSuch);
       });
     });
   });
@@ -168,13 +192,25 @@ describe('Suite', function(){
 
     describe('wraps the passed in function in a Hook', function(){
       it('adds it to _beforeEach', function(){
-        function fn(){}
-        this.suite.beforeEach(fn);
+        var anonFn = function(){};
+        this.suite.beforeEach(anonFn);
 
         this.suite._beforeEach.should.have.length(1);
         var beforeEachItem = this.suite._beforeEach[0];
         beforeEachItem.title.should.equal('"before each" hook');
-        beforeEachItem.fn.should.equal(fn);
+        beforeEachItem.fn.should.equal(anonFn);
+      });
+    });
+
+    describe('derives title from function name', function(){
+      it('adds it to _beforeEach', function(){
+        function suchAndSuch(){}
+        this.suite.beforeEach(suchAndSuch);
+
+        this.suite._beforeEach.should.have.length(1);
+        var beforeEachItem = this.suite._beforeEach[0];
+        beforeEachItem.title.should.equal('suchAndSuch "before each" hook');
+        beforeEachItem.fn.should.equal(suchAndSuch);
       });
     });
   });
@@ -186,13 +222,25 @@ describe('Suite', function(){
 
     describe('wraps the passed in function in a Hook', function(){
       it('adds it to _afterEach', function(){
-        function fn(){}
-        this.suite.afterEach(fn);
+        var anonFn = function(){};
+        this.suite.afterEach(anonFn);
 
         this.suite._afterEach.should.have.length(1);
         var afterEachItem = this.suite._afterEach[0];
         afterEachItem.title.should.equal('"after each" hook');
-        afterEachItem.fn.should.equal(fn);
+        afterEachItem.fn.should.equal(anonFn);
+      });
+    });
+
+    describe('derives title from function name', function(){
+      it('adds it to _afterEach', function(){
+        function suchAndSuch(){}
+        this.suite.afterEach(suchAndSuch);
+
+        this.suite._afterEach.should.have.length(1);
+        var afterEachItem = this.suite._afterEach[0];
+        afterEachItem.title.should.equal('suchAndSuch "after each" hook');
+        afterEachItem.fn.should.equal(suchAndSuch);
       });
     });
   });
